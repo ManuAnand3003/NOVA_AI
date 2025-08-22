@@ -1,8 +1,9 @@
 #calculator.py
+from simpleeval import simple_eval
 
-def evalualate_expression(expr):
+def evaluate_expression(expr):
     try:
-        result=eval(expr)
-        return f"The asnwer is {result}"
+        result = simple_eval(expr)
+        return f"The answer is {result}"
     except Exception as e:
-        return f"Sorry, I couldn't calcuate that. Error: {e}"
+        return f"Sorry, I couldn't calculate that. Error: {e}"

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova AI Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Nova AI Assistant</h1>
+            <div class="mode-selector">
+                <button id="voiceMode" class="active">Voice Mode</button>
+                <button id="textMode">Text Mode</button>
+            </div>
+        </header>
+
+        <div class="chat-container">
+            <div id="chatHistory"></div>
+            <div class="input-area">
+                <input type="text" id="userInput" placeholder="Type your message...">
+                <button id="sendBtn">Send</button>
+                <button id="listenBtn">🎤 Listen</button>
+            </div>
+        </div>
+
+        <div class="tools">
+            <h2>AI Tools</h2>
+            <div class="tool-buttons">
+                <button id="calcBtn">Calculator</button>
+                <button id="sentimentBtn">Sentiment Analysis</button>
+                <button id="visionBtn">Image Analysis</button>
+                <button id="generateBtn">Text Generation</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

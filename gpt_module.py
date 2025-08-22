@@ -1,6 +1,7 @@
 import openai
 from dotenv import load_dotenv
 import os
+from config import GPT_MODEL # Import GPT model from config
 
 # Load environment variables from .env file
 load_dotenv()
@@ -19,11 +20,10 @@ def gpt_response(prompt, memory=None):
     
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",  # or switch to gpt-4 when you get access
+            model=GPT_MODEL,
             messages=messages
         )
         reply = response.choices[0].message.content.strip()
-        memory.append({"role": "user", "content": prompt})
         memory.append({"role": "assistant", "content": reply})
         return reply, memory
     except Exception as e:
