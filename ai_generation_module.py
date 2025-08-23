@@ -1,5 +1,5 @@
 # ai_generation_module.py
-import openai
+import google.generativeai as genai
 from dotenv import load_dotenv
 import os
 from config import GPT_MODEL # Import GPT model from config
@@ -8,22 +8,22 @@ from config import GPT_MODEL # Import GPT model from config
 load_dotenv()
 
 # Get API key from environment variable
-openai.api_key = os.getenv("OPENAI_API_KEY")
+api_key = os.getenv("GOOGLE_API_KEY") # Assuming GOOGLE_API_KEY for Gemini
 
-if not openai.api_key:
-    raise ValueError("OPENAI_API_KEY not found in .env file")
+if not api_key:
+    raise ValueError("GOOGLE_API_KEY not found in .env file")
+
+genai.configure(api_key=api_key)
 
 def generate_text(prompt, model=GPT_MODEL):
     """
-    Generates text based on a given prompt using the OpenAI API.
+    Generates text based on a given prompt using the Gemini API.
     This can be extended for image generation or other creative tasks.
     """
     try:
-        response = openai.ChatCompletion.create(
-            model=model,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        return response.choices[0].message.content.strip()
+        model = genai.GenerativeModel(model)
+        response = model.generate_content(prompt)
+        return response.text.strip()
     except Exception as e:
         return f"An error occurred during AI generation: {e}"
 

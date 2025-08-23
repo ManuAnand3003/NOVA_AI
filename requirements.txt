@@ -1,0 +1,9 @@
+openai
+python-dotenv
+google-generativeai
+speechrecognition
+gtts
+playsound==1.2.2
+requests
+re
+simpleeval
