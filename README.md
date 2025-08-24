@@ -67,8 +67,6 @@ A modern, student-friendly AI assistant web application featuring chat, calculat
 - HTML/CSS (modern UI)
 
 ## Credits
-- Developed by Manu Anand and contributors.
+- Developed by Manu Anand.
 - Open-source libraries and models credited in respective modules.
 
-## License
-This project is for educational purposes. See LICENSE for details.
