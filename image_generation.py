@@ -4,10 +4,16 @@ import torch
 
 # Load the SDXL pipeline (first time will download weights)
 def get_sdxl_pipeline():
-    return StableDiffusionXLPipeline.from_pretrained(
-        "stabilityai/stable-diffusion-xl-base-1.0",
-        torch_dtype=torch.float16
-    ).to("cuda" if torch.cuda.is_available() else "cpu")
+    if torch.cuda.is_available():
+        return StableDiffusionXLPipeline.from_pretrained(
+            "stabilityai/stable-diffusion-xl-base-1.0",
+            torch_dtype=torch.float16
+        ).to("cuda")
+    else:
+        return StableDiffusionXLPipeline.from_pretrained(
+            "stabilityai/stable-diffusion-xl-base-1.0",
+            torch_dtype=torch.float32
+        ).to("cpu")
 
 pipeline = None
 

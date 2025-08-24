@@ -4,35 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova AI Interface</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Nova AI Assistant</h1>
-            <div class="mode-selector">
-                <button id="voiceMode" class="active">Voice Mode</button>
-                <button id="textMode">Text Mode</button>
-            </div>
-        </header>
+    <div class="header">
+        <h1>Nova AI Studio</h1>
+        <div class="mode-selector card" style="max-width: 320px; margin: 1rem auto 0 auto;">
+            <button id="voiceMode" class="active">Voice Mode</button>
+            <button id="textMode">Text Mode</button>
+        </div>
+    </div>
 
+    <div class="card">
         <div class="chat-container">
-            <div id="chatHistory"></div>
-            <div class="input-area">
-                <input type="text" id="userInput" placeholder="Type your message...">
+            <div id="chatHistory" class="result" style="min-height: 80px; position: relative;"></div>
+            <div id="circularLoader" class="circular-loader" style="display:none; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);"></div>
+            <div class="input-area" style="display: flex; gap: 0.5rem;">
+                <input type="text" id="userInput" placeholder="Type your message..." style="flex:1;">
                 <button id="sendBtn">Send</button>
                 <button id="listenBtn">🎤 Listen</button>
             </div>
         </div>
+    </div>
 
-        <div class="tools">
-            <h2>AI Tools</h2>
-            <div class="tool-buttons">
-                <button id="calcBtn">Calculator</button>
-                <button id="sentimentBtn">Sentiment Analysis</button>
-                <button id="visionBtn">Image Analysis</button>
-                <button id="generateBtn">Text Generation</button>
-            </div>
+    <div class="card">
+        <h2 style="margin-top:0; color:#4285F4;">AI Tools</h2>
+        <div class="tool-buttons" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+            <button id="calcBtn">Calculator</button>
+            <button id="sentimentBtn">Sentiment Analysis</button>
+            <button id="visionBtn">Image Analysis</button>
+            <button id="generateBtn">Text Generation</button>
+            <button id="imageGenBtn">Image Generation</button>
         </div>
     </div>
 
